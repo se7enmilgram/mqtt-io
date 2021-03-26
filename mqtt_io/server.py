@@ -1082,7 +1082,7 @@ class MqttIo:  # pylint: disable=too-many-instance-attributes
             except KeyError:
                 continue
 
-            async def reset_timer(out_conf: ConfigType = out_conf) -> None:
+            async def reset_timer(out_conf: ConfigType = out_conf, v: bool = value) -> None:
                 """
                 Reset the output to the opposite value after x ms.
                 """
@@ -1096,7 +1096,7 @@ class MqttIo:  # pylint: disable=too-many-instance-attributes
                     str(value),
                     msec,
                 )
-                await self.set_digital_output(module, out_conf, not value)
+                await self.set_digital_output(module, out_conf, not v )
 
             task = self.loop.create_task(reset_timer())
             self.transient_tasks.append(task)
