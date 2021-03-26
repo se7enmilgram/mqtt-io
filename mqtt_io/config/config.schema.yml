@@ -770,6 +770,32 @@ digital_outputs:
         type: integer
         required: no
         empty: yes
+      timed_set_on_ms:
+        meta:
+        description: |
+          How long to set an output to the desired value on receipt of an MQTT message
+          to the `/set` topic with an ON payload before then setting it back to the 
+          opposite value.
+        unit: milliseconds
+        extra_info: |
+          As with timed_set_ms, but this only applies to `/set` topics with ON payloads.
+          Setting this option overrides timed_set_ms.
+        type: integer
+        required: no
+        empty: yes
+      timed_set_off_ms:
+        meta:
+        description: |
+          How long to set an output to the desired value on receipt of an MQTT message
+          to the `/set` topic with an OFF payload before then setting it back to the 
+          opposite value.
+        unit: milliseconds
+        extra_info: |
+          As with timed_set_ms, but this only applies to `/set` topics with ON payloads.
+          Setting this option overrides timed_set_ms.
+        type: integer
+        required: no
+        empty: yes
       initial:
         meta:
           description: |
