@@ -1073,6 +1073,7 @@ class MqttIo:  # pylint: disable=too-many-instance-attributes
                 if ("timed_set_on_ms" in out_conf) and (payload == out_conf["on_payload"]):
                     print("DING! timed_set_on_ms")
                     print(value)
+                    print(payload)
                     msec = out_conf["timed_set_on_ms"]
                 elif ("timed_set_off_ms" in out_conf) and (payload == out_conf["off_payload"]):
                     msec = out_conf["timed_set_on_ms"]
