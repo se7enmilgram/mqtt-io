@@ -1070,7 +1070,12 @@ class MqttIo:  # pylint: disable=too-many-instance-attributes
             await self.set_digital_output(module, out_conf, value)
 
             try:
-                msec = out_conf["timed_set_ms"]
+                if ("timed_set_on_ms" in out_conf) and (payload == out_conf["on_payload"]):
+                    msec = out_conf["timed_set_on_ms"]
+                elif ("timed_set_off_ms" in out_conf) and (payload == out_conf["off_payload"]):
+                    msec = out_conf["timed_set_on_ms"]
+                else:
+                    msec = out_conf["timed_set_ms"]
             except KeyError:
                 continue
 
