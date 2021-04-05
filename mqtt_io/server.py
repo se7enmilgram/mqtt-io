@@ -1055,7 +1055,7 @@ class MqttIo:  # pylint: disable=too-many-instance-attributes
         messages, but it's actually better that we don't, since any timed stuff would
         hold up /set messages that need to take place immediately.
         """
-        async def reset_timer(out_conf: ConfigType = None, v: bool = None) -> None:
+        async def reset_timer(out_conf: ConfigType, v: bool ) -> None:
             """
             Reset the output to the opposite value after x ms.
             """
