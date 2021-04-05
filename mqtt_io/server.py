@@ -138,6 +138,7 @@ class MqttIo:  # pylint: disable=too-many-instance-attributes
     def __init__(
         self, config: Dict[str, Any], loop: Optional[asyncio.AbstractEventLoop] = None
     ) -> None:
+        print("DONG!")
         self.config = config
         self._init_mqtt_config()
 
