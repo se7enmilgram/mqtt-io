@@ -1099,7 +1099,7 @@ class MqttIo:  # pylint: disable=too-many-instance-attributes
             except KeyError:
                 continue
 
-            task = self.loop.create_task(reset_timer())
+            task = self.loop.create_task(reset_timer(out_conf, value))
             self.transient_tasks.append(task)
 
     async def stream_output_loop(
